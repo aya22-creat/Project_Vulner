@@ -1,0 +1,12 @@
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\bin\Debug\net9.0\ProjectVuln.Domain.deps.json
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\bin\Debug\net9.0\ProjectVuln.Domain.dll
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\bin\Debug\net9.0\ProjectVuln.Domain.pdb
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.AssemblyInfoInputs.cache
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.AssemblyInfo.cs
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.csproj.CoreCompileInputs.cache
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.sourcelink.json
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.dll
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\refint\ProjectVuln.Domain.dll
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.pdb
+C:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ref\ProjectVuln.Domain.dll
