@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "ProjectVuln.API.Controllers.CodeScansController",
+    "Method": "CreateScan",
+    "RelativePath": "api/CodeScans",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ProjectVuln.Application.DTO.ScanRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectVuln.API.Controllers.CodeScansController",
+    "Method": "GetAllScans",
+    "RelativePath": "api/CodeScans",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectVuln.API.Controllers.CodeScansController",
+    "Method": "GetScan",
+    "RelativePath": "api/CodeScans/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
