@@ -1,13 +1,13 @@
-using ProjectVuln.Domain.entity;
 using ProjectVuln.Application.DTO;
-
+using ProjectVuln.Application.Result;
 namespace ProjectVuln.Application.Interfaces;
+
 
 public interface ICodeScanService
 {
-    Task<ScanResponse> CreateScanAsync(ScanRequest request);
-    Task<ScanResponse?> GetScanAsync(Guid id);
-    Task<List<ScanResponse>> GetAllScansAsync();
-    Task<ScanResponse?> GetScanResultAsync(Guid id);
+    Task<ServiceResult<ScanResponse>> CreateScanAsync(ScanRequest request);
 
+    Task<ServiceResult<ScanResponse>> GetScanAsync(Guid id);
+
+    Task<ServiceResult<List<ScanResponse>>> GetAllScansAsync();
 }
