@@ -1,0 +1,6 @@
+# Ignore model weights
+ProjectVuln.AI/model/stage3_best.pt
+
+# Python caches
+**/__pycache__/
+*.pyc
