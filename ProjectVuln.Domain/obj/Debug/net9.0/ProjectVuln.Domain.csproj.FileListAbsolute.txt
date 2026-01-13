@@ -25,3 +25,6 @@ D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\refint
 D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.pdb
 D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.genruntimeconfig.cache
 D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ref\ProjectVuln.Domain.dll
+c:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\bin\Debug\net9.0\ProjectVuln.Domain.runtimeconfig.json
+c:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.csproj.AssemblyReference.cache
+c:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Domain\obj\Debug\net9.0\ProjectVuln.Domain.genruntimeconfig.cache
