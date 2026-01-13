@@ -1,0 +1,16 @@
+# Ignore model weights
+ProjectVuln.AI/model/stage3_best.pt
+
+# Python caches
+**/__pycache__/
+*.pyc
+
+# .NET build outputs
+**/bin/
+**/obj/
+
+# Virtual environments
+.venv/
+
+# Editor settings (optional)
+.vscode/
