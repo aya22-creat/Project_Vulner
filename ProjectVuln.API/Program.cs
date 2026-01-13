@@ -15,6 +15,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<ICodeScanService, CodeScanService>();
 builder.Services.AddScoped<ICodeScanRepository, CodeScanRepository>();
+builder.Services.AddHttpClient<IAiScanner, AiScanner>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

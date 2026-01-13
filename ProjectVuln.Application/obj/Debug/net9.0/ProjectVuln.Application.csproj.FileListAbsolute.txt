@@ -32,3 +32,5 @@ D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Application\obj\Debug\net9.0\r
 D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Application\obj\Debug\net9.0\ProjectVuln.Application.pdb
 D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Application\obj\Debug\net9.0\ProjectVuln.Application.genruntimeconfig.cache
 D:\Repo\Project_Vulner\Project_Vulner\ProjectVuln.Application\obj\Debug\net9.0\ref\ProjectVuln.Application.dll
+c:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Application\bin\Debug\net9.0\ProjectVuln.Application.runtimeconfig.json
+c:\Users\AL-Huda\Documents\Project_Vulner\ProjectVuln.Application\obj\Debug\net9.0\ProjectVuln.Application.genruntimeconfig.cache
