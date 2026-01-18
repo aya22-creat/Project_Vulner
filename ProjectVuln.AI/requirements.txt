@@ -1,7 +1,10 @@
-fastapi
-uvicorn
-torch
-transformers
-pydantic
-numpy
-scikit-learn
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+pydantic==2.8.2
+torch==2.5.0+cpu
+numpy>=2.0.0
+pyyaml>=6.0
+tqdm>=4.66

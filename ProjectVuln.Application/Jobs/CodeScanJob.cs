@@ -16,6 +16,18 @@ namespace ProjectVuln.Application.Jobs
             _aiScanner = aiScanner;
         }
 
+        // Process all pending scans - called by Hangfire recurring job
+        public async Task ProcessPendingScansAsync()
+        {
+            var pendingScans = await _repository.GetPendingScansAsync();
+            
+            foreach (var scan in pendingScans)
+            {
+                // Enqueue each scan for processing
+                await ExecuteAsync(scan.Id);
+            }
+        }
+
         public async Task ExecuteAsync(Guid scanId)
         {
             var scan = await _repository.GetByIdAsync(scanId);

@@ -34,6 +34,14 @@ public class CodeScanRepository : ICodeScanRepository
             .ToListAsync();
     }
 
+    public async Task<List<CodeScan>> GetPendingScansAsync()
+    {
+        return await _context.CodeScans
+            .Where(s => s.Status == ScanStatus.Pending)
+            .OrderBy(s => s.CreatedAt)
+            .ToListAsync();
+    }
+
     public async Task UpdateAsync(CodeScan scan)
     {
         _context.CodeScans.Update(scan);

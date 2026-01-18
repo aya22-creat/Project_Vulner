@@ -15,16 +15,16 @@ namespace ProjectVuln.Infrastructure.Migrations
                 name: "CodeScans",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Type = table.Column<int>(type: "int", nullable: false),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RepoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HasVulnerabilities = table.Column<bool>(type: "bit", nullable: true),
-                    Branch = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConfidenceScore = table.Column<double>(type: "float", nullable: true),
-                    AiRawResponse = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Type = table.Column<int>(type: "INTEGER", nullable: false),
+                    Code = table.Column<string>(type: "TEXT", nullable: true),
+                    RepoUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    HasVulnerabilities = table.Column<bool>(type: "INTEGER", nullable: true),
+                    Branch = table.Column<string>(type: "TEXT", nullable: true),
+                    ConfidenceScore = table.Column<double>(type: "REAL", nullable: true),
+                    AiRawResponse = table.Column<string>(type: "TEXT", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Status = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

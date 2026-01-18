@@ -1,4 +1,6 @@
 ﻿using Hangfire;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using ProjectVuln.Application.DTO;
 using ProjectVuln.Application.Interfaces;
 using ProjectVuln.Application.Jobs;
@@ -11,10 +13,14 @@ namespace ProjectVuln.Application.Services;
 public class CodeScanService : ICodeScanService
 {
     private readonly ICodeScanRepository _repository;
+    private readonly IServiceProvider _serviceProvider;
+    private readonly IHostEnvironment _env;
 
-    public CodeScanService(ICodeScanRepository repository)
+    public CodeScanService(ICodeScanRepository repository, IServiceProvider serviceProvider, IHostEnvironment env)
     {
         _repository = repository;
+        _serviceProvider = serviceProvider;
+        _env = env;
     }
 
     public async Task<ServiceResult<ScanResponse>> CreateScanAsync(ScanRequest request)
@@ -31,8 +37,17 @@ public class CodeScanService : ICodeScanService
 
         await _repository.AddAsync(scan);
 
-
-        BackgroundJob.Enqueue<CodeScanJob>(job => job.ExecuteAsync(scan.Id));
+        // In Development, run job inline without Hangfire to avoid storage configuration.
+        if (_env.IsDevelopment())
+        {
+            using var scope = _serviceProvider.CreateScope();
+            var job = scope.ServiceProvider.GetRequiredService<CodeScanJob>();
+            _ = Task.Run(() => job.ExecuteAsync(scan.Id));
+        }
+        else
+        {
+            BackgroundJob.Enqueue<CodeScanJob>(job => job.ExecuteAsync(scan.Id));
+        }
 
         return ServiceResult<ScanResponse>.SuccessResult(200, MapToResponse(scan), "Scan queued");
     }

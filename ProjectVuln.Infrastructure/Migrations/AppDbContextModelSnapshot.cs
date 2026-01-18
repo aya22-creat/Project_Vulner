@@ -18,9 +18,10 @@ namespace ProjectVuln.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.11")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                .HasAnnotation("SqlServer:IdentitySeed", 1L)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ProjectVuln.Domain.entity.CodeScan", b =>
                 {
@@ -57,7 +58,7 @@ namespace ProjectVuln.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CodeScans");
+                    b.ToTable("CodeScans", (string)null);
                 });
 #pragma warning restore 612, 618
         }
