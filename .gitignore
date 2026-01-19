@@ -79,3 +79,5 @@ temp/
 
 # Model weights (keep in .gitignore if file is large)
 ProjectVuln.AI/models/*.pt
+ProjectVuln.AI/model/*.pt
+*.pt
