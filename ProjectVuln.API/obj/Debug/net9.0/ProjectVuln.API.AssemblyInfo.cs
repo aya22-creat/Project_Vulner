@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectVuln.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2bc80950b32d5a56b9a6891a82945797d6a4c41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce49fafa28b31881cb5f7598c515935e12ca2cb6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectVuln.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectVuln.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
