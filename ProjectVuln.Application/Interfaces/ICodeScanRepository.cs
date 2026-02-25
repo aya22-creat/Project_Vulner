@@ -8,5 +8,6 @@ public interface ICodeScanRepository
     Task<CodeScan> AddAsync(CodeScan scan);
     Task<CodeScan?> GetByIdAsync(Guid id);
     Task<List<CodeScan>> GetAllAsync();
+    Task<List<CodeScan>> GetPendingScansAsync();
     Task UpdateAsync(CodeScan scan);
 }
