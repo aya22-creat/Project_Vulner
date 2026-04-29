@@ -42,6 +42,7 @@ builder.Services.AddCors(options =>
 // ============================================
 builder.Services.AddScoped<ICodeScanService, CodeScanService>();
 builder.Services.AddScoped<ICodeScanRepository, CodeScanRepository>();
+
 // AI Scanner typed HttpClient
 builder.Services.AddHttpClient<IAiScanner, AiScanner>(client =>
 {
@@ -59,13 +60,9 @@ builder.Services.AddHttpClient<AiClientWithRetry>(client =>
 });
 builder.Services.AddTransient<ProjectVuln.Application.Jobs.CodeScanJob>();
 
-// HttpClient for AI Service calls
-builder.Services.AddHttpClient<AiClientWithRetry>(client =>
-{
-    var aiServiceUrl = builder.Configuration["AiService:BaseUrl"] ?? "http://localhost:8000";
-    client.BaseAddress = new Uri(aiServiceUrl);
-    client.Timeout = TimeSpan.FromSeconds(int.Parse(builder.Configuration["AiService:TimeoutSeconds"] ?? "60"));
-});
+// User auth services
+builder.Services.AddScoped<ProjectVuln.Application.Interfaces.IUserRepository, ProjectVuln.Infrastructure.Repositories.UserRepository>();
+builder.Services.AddScoped<ProjectVuln.Application.Interfaces.IUserService, ProjectVuln.Application.Services.UserService>();
 
 // ============================================
 // Database Configuration

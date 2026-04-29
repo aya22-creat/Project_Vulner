@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<CodeScan> CodeScans { get; set; }
+    public DbSet<Reg> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -33,6 +34,15 @@ public class AppDbContext : DbContext
             entity.Property(e => e.ResultsJson);
             entity.Property(e => e.ErrorMessage);
             entity.Property(e => e.CompletedAt);
+        });
+
+        modelBuilder.Entity<Reg>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Email).IsRequired();
+            entity.HasIndex(e => e.Email).IsUnique();
+            entity.Property(e => e.PasswordHash).IsRequired();
+            entity.Property(e => e.CreatedAt).IsRequired();
         });
     }
 }

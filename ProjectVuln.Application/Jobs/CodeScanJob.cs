@@ -50,7 +50,7 @@ public class CodeScanJob
 
         try
         {
-            // Original flow step: status transitions to Running once job starts.
+            // Mark the scan as running and persist
             scan.Status = ScanStatus.Running;
             await _repository.UpdateAsync(scan);
 
