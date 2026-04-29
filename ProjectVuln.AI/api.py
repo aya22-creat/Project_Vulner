@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 from inference import predict
 import logging
 import sys
+from typing import Optional
 
 # Configure logging
 logging.basicConfig(
@@ -57,12 +58,14 @@ class ScanResponse(BaseModel):
     """Response model for scan results"""
     label: str = Field(..., description="Vulnerability classification (vulnerable, safe)")
     confidence: float = Field(..., ge=0, le=1, description="Confidence score (0-1)")
+    vulnerability_type: Optional[str] = Field(default=None, description="Predicted vulnerability type/class")
     
     class Config:
         json_schema_extra = {
             "example": {
-                "label": "vulnerable",
-                "confidence": 0.95
+                "label": "VULN",
+                "confidence": 0.95,
+                "vulnerability_type": "CWE-CLASS-89"
             }
         }
 
@@ -177,9 +180,3 @@ if __name__ == "__main__":
         port=8000,
         log_level="info"
     )
-
-
-@app.get("/health")
-async def health():
-    """Health check endpoint."""
-    return {"status": "healthy"}

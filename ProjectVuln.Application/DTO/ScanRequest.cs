@@ -7,5 +7,7 @@ public class ScanRequest
     public ScanType Type { get; set; }
     public string? Code { get; set; }
     public string? RepoUrl { get; set; } 
-     public string? Branch { get; set; } = "main";
+    public string? TargetUrl { get; set; }
+    public string? Branch { get; set; } = "main";
+    public string? Plan { get; set; }
 }

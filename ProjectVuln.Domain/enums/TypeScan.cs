@@ -4,5 +4,6 @@ namespace ProjectVuln.Domain.enums;
 public enum ScanType
 {
     Code,
-    RepoUrl
+    RepoUrl,
+    Website
 };

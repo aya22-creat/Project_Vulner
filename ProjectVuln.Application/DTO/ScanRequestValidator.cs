@@ -18,6 +18,11 @@ public static class ScanRequestValidator
             return new ValidationResult("RepoUrl is required when Type is 'RepoUrl'");
         }
 
+        if (request.Type == ScanType.Website && string.IsNullOrWhiteSpace(request.TargetUrl))
+        {
+            return new ValidationResult("TargetUrl is required when Type is 'Website'");
+        }
+
         // Max code length validation
         if (request.Type == ScanType.Code && request.Code != null && request.Code.Length > 100000)
         {

@@ -1,0 +1,71 @@
+Using launch settings from /home/darrag/التنزيلات/Project_Vulner/ProjectVuln.API/Properties/launchSettings.json...
+Building...
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2026-03-07 10:45:49.3971038+00:00');
+      SELECT changes();
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "__EFMigrationsLock";
+✓ Database migration completed successfully
+✓ Hangfire recurring job configured: process-pending-scans
+🚀 API Server starting on https://localhost:5284
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:5284
+info: Hangfire.BackgroundJobServer[0]
+      Starting Hangfire Server using job storage: 'In-Memory Storage'
+info: Hangfire.BackgroundJobServer[0]
+      Using the following options for Hangfire Server:
+          Worker count: 20
+          Listening queues: 'default'
+          Shutdown timeout: 00:00:15
+          Schedule polling interval: 00:00:15
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/darrag/التنزيلات/Project_Vulner/ProjectVuln.API
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 successfully announced in 2.0513 ms
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, Worker, DelayedJobScheduler, RecurringJobScheduler...
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 all the dispatchers started
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."AiRawResponse", "c"."Branch", "c"."Code", "c"."ConfidenceScore", "c"."CreatedAt", "c"."HasVulnerabilities", "c"."RepoUrl", "c"."Status", "c"."Type"
+      FROM "CodeScans" AS "c"
+      WHERE "c"."Status" = 0
+      ORDER BY "c"."CreatedAt"
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 caught stopping signal...
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 All dispatchers stopped
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 successfully reported itself as stopped in 1.3514 ms
+info: Hangfire.Server.BackgroundServerProcess[0]
+      Server darrag:20232:fd6bb422 has been stopped in total 9.5887 ms

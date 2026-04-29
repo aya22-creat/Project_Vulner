@@ -27,6 +27,12 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Type).IsRequired();
             entity.Property(e => e.CreatedAt).IsRequired();
             entity.Property(e => e.Status).IsRequired();
+            entity.Property(e => e.UserId);
+            entity.Property(e => e.TargetUrl);
+            entity.Property(e => e.ZapScanId);
+            entity.Property(e => e.ResultsJson);
+            entity.Property(e => e.ErrorMessage);
+            entity.Property(e => e.CompletedAt);
         });
     }
 }

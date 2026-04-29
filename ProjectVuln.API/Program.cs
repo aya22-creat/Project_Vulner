@@ -152,6 +152,7 @@ using (var scope = app.Services.CreateScope())
     {
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         db.Database.Migrate();
+        EnsureSqliteCompatibilityColumns(db);
         Console.WriteLine("✓ Database migration completed successfully");
         
         // Set up Hangfire recurring job for processing pending scans
@@ -170,6 +171,83 @@ using (var scope = app.Services.CreateScope())
 
 Console.WriteLine("🚀 API Server starting on https://localhost:5284");
 app.Run();
+
+static void EnsureSqliteCompatibilityColumns(AppDbContext db)
+{
+    if (!db.Database.IsSqlite())
+    {
+        return;
+    }
+
+    // Legacy local DBs can miss columns added after the first migration.
+    // Add them defensively so runtime queries do not fail with "no such column".
+    var expectedColumns = new[]
+    {
+        "UserId",
+        "TargetUrl",
+        "ZapScanId",
+        "ResultsJson",
+        "ErrorMessage",
+        "CompletedAt"
+    };
+
+    var existingColumns = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+    var connection = db.Database.GetDbConnection();
+    var shouldCloseConnection = connection.State != System.Data.ConnectionState.Open;
+    if (shouldCloseConnection)
+    {
+        connection.Open();
+    }
+
+    try
+    {
+        using var pragmaCommand = connection.CreateCommand();
+        pragmaCommand.CommandText = "PRAGMA table_info('CodeScans');";
+        using var reader = pragmaCommand.ExecuteReader();
+
+        while (reader.Read())
+        {
+            var columnName = reader.GetString(1);
+            existingColumns.Add(columnName);
+        }
+
+        foreach (var columnName in expectedColumns)
+        {
+            if (!existingColumns.Contains(columnName))
+            {
+                // Execute fixed statements to avoid SQL interpolation warnings.
+                switch (columnName)
+                {
+                    case "UserId":
+                        db.Database.ExecuteSqlRaw("ALTER TABLE CodeScans ADD COLUMN UserId TEXT NULL;");
+                        break;
+                    case "TargetUrl":
+                        db.Database.ExecuteSqlRaw("ALTER TABLE CodeScans ADD COLUMN TargetUrl TEXT NULL;");
+                        break;
+                    case "ZapScanId":
+                        db.Database.ExecuteSqlRaw("ALTER TABLE CodeScans ADD COLUMN ZapScanId TEXT NULL;");
+                        break;
+                    case "ResultsJson":
+                        db.Database.ExecuteSqlRaw("ALTER TABLE CodeScans ADD COLUMN ResultsJson TEXT NULL;");
+                        break;
+                    case "ErrorMessage":
+                        db.Database.ExecuteSqlRaw("ALTER TABLE CodeScans ADD COLUMN ErrorMessage TEXT NULL;");
+                        break;
+                    case "CompletedAt":
+                        db.Database.ExecuteSqlRaw("ALTER TABLE CodeScans ADD COLUMN CompletedAt TEXT NULL;");
+                        break;
+                }
+            }
+        }
+    }
+    finally
+    {
+        if (shouldCloseConnection)
+        {
+            connection.Close();
+        }
+    }
+}
 
 // Simple authorization filter for Hangfire dashboard
 public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter

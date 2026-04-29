@@ -4,7 +4,7 @@ namespace ProjectVuln.Application.Interfaces
 {
     public interface IAiScanner
     {
-        Task<(bool HasVulnerabilities, string RawResponse, double ConfidenceScore)> ScanCodeAsync(string code);
-        Task<(bool HasVulnerabilities, string RawResponse, double ConfidenceScore)> ScanRepoAsync(string repoPath);
+        Task<(bool HasVulnerabilities, string RawResponse, double ConfidenceScore, string? VulnerabilityType)> ScanCodeAsync(string code);
+        Task<(bool HasVulnerabilities, string RawResponse, double ConfidenceScore, string? VulnerabilityType)> ScanRepoAsync(string repoPath);
     }
 }
